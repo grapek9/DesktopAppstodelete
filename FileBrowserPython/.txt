@@ -1,0 +1,14 @@
+self.button = tk.Button(self)
+			self.button.grid(column=0,row=2)
+			self.button["text"] = "Hello World\n(click me)"
+			self.button["command"] = self.say_something
+			#self.button.pack(side="top")
+			self.input = tk.Entry(self,text="test",width=100)
+			#self.input.pack(side="bottom");
+			self.input.grid(column=0,row=0)
+			self.QUIT = tk.Button(self,text=" ?  ",fg="red",command=root.destroy)
+			
+			self.QUIT.grid(column=0,row=0)
+
+		def say_something(self):
+			print("something")

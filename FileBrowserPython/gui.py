@@ -2,25 +2,29 @@ import tkinter as tk
 def runGui():
 	class MainWindow(tk.Frame):
 		def __init__(self,master=None):
-			tk.Frame.__init__(self,master)
+			tk.Frame.__init__(self,master,width=0,height=0)
 			self.pack()
+			self.grid(row=30,column=30)
 			self.createWidgets()
-			master.minsize(width=666,height=666)
+			master.minsize(width=640,height=480)
 			master.maxsize(width=666,height=666)
 			master.title("FileExplorer by grapek9")
 		def createWidgets(self):
-			self.button = tk.Button(self)
-			self.button["text"] = "Hello World\n(click me)"
-			self.button["command"] = self.say_something
-			self.button.pack(side="top")
+			mainframe = tk.Frame(self,bg="orange",width=640,height=480)
+			mainframe.grid(row=1,column=0)
+			mainframe.pack()
+			frame1 = tk.Frame(mainframe,bg="red",width=100,height=100)
+			frame1.grid(row=0,column=0)
+			#frame1.pack()
+			frame2 = tk.Frame(mainframe,bg="green",width=100,height=100)
+			frame2.grid(row=1,column=1)
+			#frame2.pack()
 
-			self.QUIT = tk.Button(self,text="QUIT",fg="red",command=root.destroy)
-			self.QUIT.pack(side="bottom")
-
-		def say_something(self):
-			print("something")
-
+			
 	root= tk.Tk()
 	app = MainWindow(master=root)
 	app.mainloop()
 	print("done?")
+
+
+#reminder = building ui inside frame1
