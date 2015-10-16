@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 from helpWindow import *
 def runGui():
 	class MainWindow(tk.Frame):
@@ -26,13 +27,18 @@ def runGui():
 			helpButton.grid(row=0,column=1)
 			#second layer
 			frame2 = tk.Frame(mainframe,bg="green",width=640,height=460)
-			frame2.grid(row=1,column=0,sticky="nsew")
-			frame2.grid_rowconfigure(0,weight=1)
-			frame2.grid_columnconfigure(0,weight=1)
-			listbox = tk.Listbox(frame2,height=29)
-			listbox.grid(row=0,column=0,sticky=(N,W,E,S))
-			listbox.grid_columnconfigure(0, weight=1)
-			listbox.grid_rowconfigure(0, weight=1)
+			frame2.grid(row=1,column=0,sticky="nsew",columnspan=60)
+
+
+			listbox = tk.Listbox(frame2,height=29,width=200)
+			listbox.grid(row=0,column=15,sticky=(N,W,E,S),columnspan=60)
+
+			#scrollbar maybe in future, main idea is to not use mouse with this app
+			#scrollbar = tk.Scrollbar(frame2,orient=VERTICAL,command=listbox.yview)
+			#scrollbar.grid(row=0,column=1,sticky=(N,E))
+			#scrollbar.grid_rowconfigure(0,weight=20)
+			for i in range(1,101):
+				listbox.insert("end",'Line %d of 100' %i)
 	root= tk.Tk()
 	root["bg"] = "grey"
 	app = MainWindow(master=root)
