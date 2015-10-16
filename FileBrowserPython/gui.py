@@ -31,12 +31,13 @@ def runGui():
 
 
 			listbox = tk.Listbox(frame2,height=29,width=200)
-			listbox.grid(row=0,column=15,sticky=(N,W,E,S),columnspan=60)
+			listbox.grid(row=0,column=0,sticky=(N,W,E,S),columnspan=60)
 
 			#scrollbar maybe in future, main idea is to not use mouse with this app
 			#scrollbar = tk.Scrollbar(frame2,orient=VERTICAL,command=listbox.yview)
 			#scrollbar.grid(row=0,column=1,sticky=(N,E))
 			#scrollbar.grid_rowconfigure(0,weight=20)
+			#githubproblems :(
 			for i in range(1,101):
 				listbox.insert("end",'Line %d of 100' %i)
 	root= tk.Tk()
